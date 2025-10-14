@@ -14,29 +14,46 @@ public class PlatformerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private float moveInput;
+    private bool isMovingRight;
+
+    private SpriteRenderer sr; 
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+        sr = GetComponent<SpriteRenderer>(); 
         // Set to Dynamic with gravity
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 3f;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        isMovingRight = true;
     }
     
     void Update()
     {
         // Get horizontal input
         moveInput = Input.GetAxisRaw("Horizontal");
-        
-        // Check if grounded
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (moveInput > 0) isMovingRight = true;
+        else isMovingRight = false;
+
+        if (isMovingRight)
+        {
+            sr.flipX = false;
+        }
+        else
+        {
+            sr.flipX = true;
+        }
+            // Check if grounded
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         
         // Jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            Debug.Log("linear velocity " + rb.linearVelocity); 
         }
     }
     
