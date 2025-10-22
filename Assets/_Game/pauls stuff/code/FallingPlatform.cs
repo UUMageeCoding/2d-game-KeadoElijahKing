@@ -1,30 +1,26 @@
 using UnityEngine;
 
-/* public class FallingPlatform : MonoBehaviour
+/*public class FallingPlatform : MonoBehaviour
 {
     private float fallDelay = 0.5f;
     private float destroyDelay = 2f;
 
-    bool isFalling;
-    Rigidbody2D rb; 
+    [SerializeField] private Rigidbody2D rb;
 
-   void start ()
-   {
-       rb = GetComponent<Rigidbody2D>();
-   }
-    private onCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isFalling && collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            startCoroutine(fall()); 
+            StartCoroutine(Fall());
         }
     }
-    private IEnumerator fall()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+   private IEnumerator Fall() 
     {
-        isFalling = true;
         yield return new WaitForSeconds(fallDelay);
-        rb.bodytype = RigidbodyType2D.Dynamic;
-        Destroy(gameObject, destroyDelay);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        destroyDelay(gameObject, destroyDelay);
     }
 }
 */
