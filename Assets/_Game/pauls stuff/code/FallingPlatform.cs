@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FallingPlatform : MonoBehaviour
+/* public class FallingPlatform : MonoBehaviour
 {
     private float fallDelay = 0.5f;
     private float destroyDelay = 2f;
@@ -27,3 +27,4 @@ public class FallingPlatform : MonoBehaviour
         Destroy(gameObject, destroyDelay);
     }
 }
+*/
