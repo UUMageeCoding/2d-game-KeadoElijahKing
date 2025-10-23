@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-/*public class SceneController : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
+    
 
-    private void Awake()
+    public void Awake()
     {
         if (instance == null)
         {
@@ -25,4 +27,4 @@ using UnityEngine;
     {
         SceneManager.LoadSceneAsync(sceneName);
     }
-}*/
+}
