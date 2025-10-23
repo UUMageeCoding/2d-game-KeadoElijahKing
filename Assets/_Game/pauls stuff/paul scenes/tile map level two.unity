@@ -81193,7 +81193,6 @@ GameObject:
   - component: {fileID: 2128061605}
   - component: {fileID: 2128061604}
   - component: {fileID: 2128061609}
-  - component: {fileID: 2128061610}
   - component: {fileID: 2128061611}
   m_Layer: 0
   m_Name: skeleton animation (1)
@@ -81354,22 +81353,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2128061610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128061603}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c013b2c6dfd9828449e774584703edda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPC: {fileID: 2128061603}
-  startPosition: {fileID: 0}
-  endPosition: {fileID: 1866416308}
-  speed: 2
 --- !u!114 &2128061611
 MonoBehaviour:
   m_ObjectHideFlags: 0
