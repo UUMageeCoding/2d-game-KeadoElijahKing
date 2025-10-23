@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 /*public class FallingPlatform : MonoBehaviour
@@ -22,5 +24,4 @@ using UnityEngine;
         rb.bodyType = RigidbodyType2D.Dynamic;
         destroyDelay(gameObject, destroyDelay);
     }
-}
-*/
+}*/
