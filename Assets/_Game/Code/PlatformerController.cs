@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class PlatformerController : MonoBehaviour
 {
@@ -16,7 +19,10 @@ public class PlatformerController : MonoBehaviour
     private float moveInput;
     private bool isMovingRight;
 
-    private SpriteRenderer sr; 
+    private SpriteRenderer sr;
+
+    private Vector3 respawnPoint;
+    public GameObject FallDetector;
     
     void Start()
     {
@@ -28,6 +34,8 @@ public class PlatformerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         isMovingRight = true;
+
+        respawnPoint = transform.position;
     }
     
     void Update()
@@ -55,8 +63,18 @@ public class PlatformerController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             Debug.Log("linear velocity " + rb.linearVelocity); 
         }
+
+        FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
-    
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("FallDetector"))
+        {
+            transform.position = respawnPoint;
+            rb.linearVelocity = Vector2.zero; // Reset velocity upon respawn
+        }
+    }
     void FixedUpdate()
     {
         // Apply horizontal movement

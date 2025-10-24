@@ -799,6 +799,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &578970158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 992438767317708211, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+  m_PrefabInstance: {fileID: 5519970758800853834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1745077839
 GameObject:
   m_ObjectHideFlags: 0
@@ -72505,6 +72510,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3179905684069888891, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
   m_PrefabInstance: {fileID: 9063815589611851205}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5519970758800853834
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 992438767317708211, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_Name
+      value: FallDetector
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6975030542278511130, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
 --- !u!1001 &7439662332765693518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72582,6 +72644,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2934461612842271696, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
+      propertyPath: FallDetector
+      value: 
+      objectReference: {fileID: 578970158}
     - target: {fileID: 3179905684069888891, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.03
@@ -72640,3 +72706,4 @@ SceneRoots:
   - {fileID: 9063815589611851205}
   - {fileID: 7439662332765693518}
   - {fileID: 1830241416}
+  - {fileID: 5519970758800853834}
