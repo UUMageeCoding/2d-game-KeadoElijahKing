@@ -82460,7 +82460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPC: {fileID: 2128061603}
   endposition: {fileID: 1866416308}
-  speed: 0.01
+  speed: 0.1
 --- !u!4 &2129052612 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 2df80e8c67cf11140b1529fb3a63180e, type: 3}
