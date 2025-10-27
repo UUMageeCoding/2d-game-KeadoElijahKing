@@ -13,10 +13,10 @@ public class finishPoint : MonoBehaviour
             {
                 SceneController.instance.NextLevel();
             }
-            else
+           /* else
             {
                 SceneController.instance.LoadScene(levelName);
-            }
+            }*/
         }
     }
     
