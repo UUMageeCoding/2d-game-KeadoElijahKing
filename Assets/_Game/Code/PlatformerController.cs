@@ -14,15 +14,20 @@ public class PlatformerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     
+    private float inputVertical;
     private Rigidbody2D rb;
     private bool isGrounded;
     private float moveInput;
     private bool isMovingRight;
+    public float distance;
 
     private SpriteRenderer sr;
 
     private Vector3 respawnPoint;
     public GameObject FallDetector;
+    
+     public LayerMask whatIsLadder;
+    private bool isClimbing;
     
     void Start()
     {
@@ -36,6 +41,7 @@ public class PlatformerController : MonoBehaviour
         isMovingRight = true;
 
         respawnPoint = transform.position;
+         rb = GetComponent<Rigidbody2D>();
     }
     
     void Update()
@@ -79,6 +85,21 @@ public class PlatformerController : MonoBehaviour
     {
         // Apply horizontal movement
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
+
+        if (hitInfo.collider != null)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                isClimbing = true;
+            }
+        }
+        if(isClimbing == true)
+        {
+            inputVertical = Input.GetAxisRaw("Vertical");
+            rb.linearVelocity = new Vector2(rb.position.x, inputVertical * moveSpeed);
+            rb.gravityScale = 0;
+        }
     }
     
     // Visualise ground check in editor
