@@ -38529,6 +38529,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 992438767317708211, guid: 1ab2f74661c270d42a70205413dc8691, type: 3}
   m_PrefabInstance: {fileID: 649658409}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &953733677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1591274800787918637, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
+  m_PrefabInstance: {fileID: 1310189917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &976401670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44171,9 +44176,9 @@ GameObject:
   - component: {fileID: 1253415894}
   - component: {fileID: 1253415896}
   - component: {fileID: 1253415895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ladder_0
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44221,7 +44226,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 5266067843512441219, guid: ab8731b121982c047b07d0eedf3de8aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -44591,13 +44596,17 @@ PrefabInstance:
       propertyPath: FallDetector
       value: 
       objectReference: {fileID: 925546860}
+    - target: {fileID: 2934461612842271696, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
+      propertyPath: whatIsLadder.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3179905684069888891, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.1
+      value: 129.7
       objectReference: {fileID: 0}
     - target: {fileID: 3179905684069888891, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.28
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 3179905684069888891, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44641,7 +44650,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3179905684069888891, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1245539409}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1591274800787918637, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1790723574}
   m_SourcePrefab: {fileID: 100100000, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
 --- !u!1001 &1311946687
 PrefabInstance:
@@ -46545,6 +46557,19 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6923616913287626721, guid: 301513b7fbef36841ab4f8ea22112b5b, type: 3}
   m_PrefabInstance: {fileID: 1310189917}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1790723574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953733677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab332e3cd625f04eb384383bbed4115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RB: {fileID: 1790723569}
 --- !u!1 &1791442341
 GameObject:
   m_ObjectHideFlags: 0
