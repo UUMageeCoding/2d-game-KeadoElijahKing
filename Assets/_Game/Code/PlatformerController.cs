@@ -73,9 +73,14 @@ public class PlatformerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             Debug.Log("linear velocity " + rb.linearVelocity);
-
-        }
+            anim.SetBool("isJumping", true);
         
+        
+        }
+        else
+        {
+            anim.SetBool("isJumping", false);
+        }
 
         FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
