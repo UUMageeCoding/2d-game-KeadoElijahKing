@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.OSX;
 
 
 public class PlatformerController : MonoBehaviour
@@ -14,20 +15,17 @@ public class PlatformerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     
-    private float inputVertical;
     private Rigidbody2D rb;
     private bool isGrounded;
     private float moveInput;
     private bool isMovingRight;
-    public float distance;
+    private bool isJumping; 
 
     private SpriteRenderer sr;
 
     private Vector3 respawnPoint;
     public GameObject FallDetector;
-    
-     public LayerMask whatIsLadder;
-    private bool isClimbing;
+    public Animator anim; 
     
     void Start()
     {
@@ -39,9 +37,9 @@ public class PlatformerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         isMovingRight = true;
+        anim = GetComponent<Animator>();
 
         respawnPoint = transform.position;
-         rb = GetComponent<Rigidbody2D>();
     }
     
     void Update()
@@ -55,20 +53,29 @@ public class PlatformerController : MonoBehaviour
         if (isMovingRight)
         {
             sr.flipX = false;
+            anim.SetBool("isRunning", true);
         }
         else
         {
             sr.flipX = true;
+            anim.SetBool("isRunning", true);
         }
-            // Check if grounded
+           if (moveInput == 0)
+        {
+             anim.SetBool("isRunning", false);
+        }
+
+       
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        
+
         // Jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            Debug.Log("linear velocity " + rb.linearVelocity); 
+            Debug.Log("linear velocity " + rb.linearVelocity);
+
         }
+        
 
         FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
@@ -85,21 +92,6 @@ public class PlatformerController : MonoBehaviour
     {
         // Apply horizontal movement
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
-
-        if (hitInfo.collider != null)
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                isClimbing = true;
-            }
-        }
-        if(isClimbing == true)
-        {
-            inputVertical = Input.GetAxisRaw("Vertical");
-            rb.linearVelocity = new Vector2(rb.position.x, inputVertical * moveSpeed);
-            rb.gravityScale = 0;
-        }
     }
     
     // Visualise ground check in editor
