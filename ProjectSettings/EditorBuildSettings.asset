@@ -6,10 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Game/pauls stuff/paul scenes/tile map scene leve one.unity
-    guid: bac809f3cbc868f468cf5534ae3b1ac8
-  - enabled: 1
-    path: Assets/_Game/pauls stuff/paul scenes/tile map level two.unity
+    path: Assets/_Game/pauls stuff/paul scenes/scenes/crystallization level one.unity
     guid: b9916be7ab10d584d9f48a411ebebe99
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
