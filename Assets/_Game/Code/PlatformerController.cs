@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
 using UnityEngine.InputSystem.OSX;
 
 
@@ -17,10 +20,11 @@ public class PlatformerController : MonoBehaviour
     
     private Rigidbody2D rb;
     private bool isGrounded;
+
     private float moveInput;
     private bool isMovingRight;
-    private bool isJumping; 
-
+    private bool isJumping;
+ 
     private SpriteRenderer sr;
 
     private Vector3 respawnPoint;
@@ -41,7 +45,7 @@ public class PlatformerController : MonoBehaviour
 
         respawnPoint = transform.position;
     }
-    
+
     void Update()
     {
         // Get horizontal input
@@ -60,13 +64,13 @@ public class PlatformerController : MonoBehaviour
             sr.flipX = true;
             anim.SetBool("isRunning", true);
         }
-           if (moveInput == 0)
+        if (moveInput == 0)
         {
-             anim.SetBool("isRunning", false);
+            anim.SetBool("isRunning", false);
         }
 
-       
-            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // Jump input
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -74,16 +78,19 @@ public class PlatformerController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             Debug.Log("linear velocity " + rb.linearVelocity);
             anim.SetBool("isJumping", true);
-        
-        
+
+
         }
         else
         {
             anim.SetBool("isJumping", false);
         }
 
+
         FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
+
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -97,8 +104,8 @@ public class PlatformerController : MonoBehaviour
     {
         // Apply horizontal movement
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
     }
-    
     // Visualise ground check in editor
     void OnDrawGizmosSelected()
     {
