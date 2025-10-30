@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d9c566b041f4a4f9b3ba035b200519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2047283381}
+  target: {fileID: 0}
   smoothSpeed: 5
   offset: {x: 0, y: 0, z: -10}
 --- !u!1 &1565256989
@@ -2350,7 +2350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5f8a5620964bcb44e901d9835a855bd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.255
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5f8a5620964bcb44e901d9835a855bd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2421,7 +2421,7 @@ MonoBehaviour:
   moveSpeed: 15
   jumpForce: 12
   groundCheck: {fileID: 963490428}
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.56
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
