@@ -1145,7 +1145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 164624364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wallcheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8537,7 +8537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5318476522366838966, guid: ebded804fd47d7d4d9085b1bf7f4c738, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.59
+      value: 12.46
       objectReference: {fileID: 0}
     - target: {fileID: 5318476522366838966, guid: ebded804fd47d7d4d9085b1bf7f4c738, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42094,6 +42094,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: kolby idle
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1160356261127867848, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
       propertyPath: m_Controller
       value: 
@@ -42112,11 +42120,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.1
+      value: -6.47
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.92
+      value: -2.97
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42587,7 +42595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092386107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
