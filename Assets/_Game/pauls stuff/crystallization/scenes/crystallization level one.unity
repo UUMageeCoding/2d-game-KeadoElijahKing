@@ -1178,8 +1178,8 @@ Transform:
   m_GameObject: {fileID: 164624363}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.139, y: 0.304, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.144, y: 0.304, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2011223400}
@@ -8641,7 +8641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5318476522366838966, guid: ebded804fd47d7d4d9085b1bf7f4c738, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.22
+      value: 15.87
       objectReference: {fileID: 0}
     - target: {fileID: 5318476522366838966, guid: ebded804fd47d7d4d9085b1bf7f4c738, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42226,11 +42226,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.47
+      value: 201.5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.97
+      value: 11.047
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e1d7a873af17ed34da28bbbba005faa5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -48363,7 +48363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab332e3cd625f04eb384383bbed4115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RB: {fileID: 0}
+  RB: {fileID: 1253415895}
 --- !u!50 &1253415895
 Rigidbody2D:
   serializedVersion: 5
@@ -50086,7 +50086,7 @@ GameObject:
   - component: {fileID: 1486509145}
   m_Layer: 9
   m_Name: wall climb
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50126,7 +50126,7 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -53374,6 +53374,17 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  baseGravity: 2
+  maxFallSpeed: 18
+  fallGravityMult: 2
+  wallCheck: {fileID: 164624364}
+  wallCheckRadius: 0.2
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  wallCheckSize: {x: 0.49, y: 0.03}
+  wallSlideSpeed: 0.5
+  wallJumpPower: {x: 12, y: 12}
   FallDetector: {fileID: 925546860}
   anim: {fileID: 2011223398}
 --- !u!114 &2011223395
@@ -53420,7 +53431,7 @@ CapsuleCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: -0.08500001, y: 0.305}
