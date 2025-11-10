@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
         FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
-private void wallJump()
+private void wallSlide() 
     {
         if (onWall() && !isGrounded())
         {
