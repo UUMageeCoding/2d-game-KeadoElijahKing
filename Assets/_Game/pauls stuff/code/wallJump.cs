@@ -1,16 +1,202 @@
 using UnityEngine;
 
-public class wallJump : MonoBehaviour
+/*public class wallJump : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Movement Settings")]
+    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private float jumpForce = 12f;
+    
+    [Header("Ground Check")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask wallLayer;
+    public bool isWallSliding;
+
+    private float wallSlideCoolDown;
+
+    bool isWallJumping;
+    float wallJumpDirection;
+    float wallJumpTime = 0.5f;
+    float wallJumpTimer;
+    public Vector2 wallJumpPower = new Vector2(5f, 12f);
+    private Rigidbody2D rb;
+
+    private float moveInput;
+    private bool isMovingRight;
+    private bool isJumping;
+ 
+    private SpriteRenderer sr;
+
+    private Vector3 respawnPoint;
+    public GameObject FallDetector;
+    public Animator anim;
+    private BoxCollider2D boxCollider;
+    
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        // Set to Dynamic with gravity
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 3f;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        isMovingRight = true;
+        anim = GetComponent<Animator>();
+
+        respawnPoint = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        isGrounded();
+        ProcessWallSlide();
+        ProcessWallJump();
+            
+            if (!isWallJumping)
+        {
+            moveInput = Input.GetAxisRaw("Horizontal");
+
+        if (moveInput > 0) isMovingRight = true;
+        else isMovingRight = false;
+
+        if (isMovingRight)
+        {
+            sr.flipX = false;
+            anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            sr.flipX = true;
+            anim.SetBool("isRunning", true);
+        }
+            if (moveInput == 0)
+            {
+                anim.SetBool("isRunning", false);
+            }
+            Flip();
+        }
+        // Get horizontal input
         
+
+
+        //isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        // Jump input
+        
+        if (wallSlideCoolDown < 0.2f)
+        {
+            if (Input.GetButtonDown("Jump") && isGrounded())
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+
+                anim.SetBool("isJumping", true);
+                if (wallJumpTimer > 0f)
+                {
+                    isWallSliding = true;
+                    rb.linearVelocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
+                    wallJumpTimer = 0;
+
+                    //force Flip
+                    if (transform.localScale.x != wallJumpDirection)
+                    {
+                         isMovingRight = !isMovingRight;
+                         Vector3 ls = transform.localScale;
+                         ls.x *= -1f;
+                         transform.localScale = ls;
+                    }
+
+                    Invoke(nameof(CancelWallJump), wallJumpTime + 0.1f); 
+                }
+
+
+            }
+            else
+            {
+                anim.SetBool("isJumping", false);
+            }
+            if (onWall() && !isGrounded())
+            {
+                rb.gravityScale = 0;
+                rb.linearVelocity = Vector2.zero;
+
+            }
+
+             
+     }
+
+
+        FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
-}
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("FallDetector"))
+        {
+            transform.position = respawnPoint;
+            rb.linearVelocity = Vector2.zero; // Reset velocity upon respawn
+        }
+    }
+    void FixedUpdate()
+    {
+        // Apply horizontal movement
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+    }
+    // Visualise ground check in editor
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
+    private bool isGrounded()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        return raycastHit.collider != null;
+    }
+    private bool onWall()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
+        return raycastHit.collider != null;
+    }
+    private void ProcessWallSlide() 
+    {
+        if (onWall() && !isGrounded())
+        {
+            wallSlideCoolDown = 0;
+            rb.linearVelocity = new Vector2(-MathF.Sign(transform.localScale.x) * 3, 6);
+        }
+    }
+    private void ProcessWallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpDirection = -transform.localScale.x;
+            wallJumpTimer = wallJumpTime;
+
+            CancelInvoke(nameof(CancelWallJump));
+        }
+        else if (wallJumpTimer > 0f)
+        {
+            wallJumpTimer -= Time.deltaTime;
+        }
+    }
+    private void CancelWallJump()
+    {
+        isWallJumping = false;
+    }
+    private void Flip()
+    {
+        isMovingRight = !isMovingRight;
+        Vector3 ls = transform.localScale;
+        ls.x *= -1f;
+        transform.localScale = ls;
+    }
+}*/
