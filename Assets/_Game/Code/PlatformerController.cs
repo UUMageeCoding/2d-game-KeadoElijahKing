@@ -30,6 +30,9 @@ public class PlatformerController : MonoBehaviour
     private Vector3 respawnPoint;
     public GameObject FallDetector;
     public Animator anim; 
+
+    private CapsuleCollider2D boxCollider;
+    
     
     void Start()
     {
@@ -51,23 +54,40 @@ public class PlatformerController : MonoBehaviour
         // Get horizontal input
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        if (moveInput > 0) isMovingRight = true;
-        else isMovingRight = false;
-
-        if (isMovingRight)
+        if (moveInput > 0)
         {
+            isMovingRight = true;
             sr.flipX = false;
+        } 
+        else if (moveInput < 0)
+        {
+            isMovingRight = false;
+            sr.flipX = true;    
+        }
+
+        if (moveInput > 0 || moveInput < 0)
+        {
+            //sr.flipX = false;
             anim.SetBool("isRunning", true);
         }
         else
         {
-            sr.flipX = true;
-            anim.SetBool("isRunning", true);
-        }
-        if (moveInput == 0)
-        {
             anim.SetBool("isRunning", false);
         }
+
+
+        
+
+
+        // else
+        // {
+        //     //sr.flipX = true;
+        //     anim.SetBool("isRunning", true);
+        // }
+        // if (moveInput == 0)
+        // {
+        //     anim.SetBool("isRunning", false);
+        // }
 
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -115,4 +135,10 @@ public class PlatformerController : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
+
+    public bool canAttack()
+    {
+        return moveInput == 0 && isGrounded;
+    }
+    
 }

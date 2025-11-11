@@ -25,13 +25,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 respawnPoint;
     public GameObject FallDetector;
     public Animator anim;
-    private BoxCollider2D boxCollider;
+    private CapsuleCollider2D boxCollider;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<CapsuleCollider2D>();
         // Set to Dynamic with gravity
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 3f;
