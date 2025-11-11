@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,7 +14,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
 
-    private float wallJumpCoolDown;
+    private float wallSlideCoolDown;
+
+    bool isWallJumping;
+    float wallJumpDirection;
+    float wallJumpTime = 0.5f;
+    float wallJumpTimer;
+    public Vector2 wallJumpPower = new Vector2(5f, 12f);
     private Rigidbody2D rb;
 
     private float moveInput;
@@ -71,12 +78,12 @@ public class PlayerMovement : MonoBehaviour
 
         // Jump input
         
-        if (wallJumpCoolDown < 0.2f)
+        if (wallSlideCoolDown < 0.2f)
         {
             if (Input.GetButtonDown("Jump") && isGrounded())
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                Debug.Log("linear velocity " + rb.linearVelocity);
+
                 anim.SetBool("isJumping", true);
 
 
@@ -85,10 +92,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("isJumping", false);
             }
-        if (onWall() && !isGrounded())
+        if (onWall() && !isGrounded ())
             {
                 rb.gravityScale = 0;
                 rb.linearVelocity = Vector2.zero;
+                if (wallJumpTimer > 0f)
+                {
+                    isWallJumping = true;
+                    rb.linearVelocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y); 
+                }
             }
      }
 
@@ -99,7 +111,7 @@ private void wallSlide()
     {
         if (onWall() && !isGrounded())
         {
-            wallJumpCoolDown = 0;
+            wallSlideCoolDown = 0;
             rb.linearVelocity = new Vector2(-MathF.Sign(transform.localScale.x) * 3, 6);
         }
     }
