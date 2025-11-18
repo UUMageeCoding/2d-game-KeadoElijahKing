@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Game/pauls stuff/crystallization/scenes/title screen.unity
+    guid: 990fded60f5ed21468d56e087ecafcc6
+  - enabled: 1
     path: Assets/_Game/pauls stuff/crystallization/scenes/crystallization level one.unity
     guid: b9916be7ab10d584d9f48a411ebebe99
   - enabled: 1
