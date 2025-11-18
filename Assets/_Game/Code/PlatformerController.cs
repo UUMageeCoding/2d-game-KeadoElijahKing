@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class PlatformerController : MonoBehaviour
     public bool isMovingRight;
     private bool isJumping;
  
-    private SpriteRenderer sr;
+    public SpriteRenderer sr;
 
     private Vector3 respawnPoint;
     public GameObject FallDetector;
@@ -70,7 +71,6 @@ public class PlatformerController : MonoBehaviour
         {
             //sr.flipX = false;
             anim.SetBool("isRunning", true);
-            anim.SetTrigger("attack");
         }
         else
         {
@@ -79,7 +79,7 @@ public class PlatformerController : MonoBehaviour
 
 
         
-
+        
 
         // else
         // {
@@ -111,7 +111,6 @@ public class PlatformerController : MonoBehaviour
 
         FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
-
 
 
     void OnTriggerEnter2D(Collider2D other)
