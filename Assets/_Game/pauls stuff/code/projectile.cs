@@ -4,13 +4,11 @@ public class projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
     private float direction;
-
     private bool hit;
     public float lifeTime;
     private Animator anim;
 
     private CapsuleCollider2D boxCollider;
-    
 
     private void Awake()
     {
@@ -25,22 +23,18 @@ public class projectile : MonoBehaviour
 
         lifeTime += Time.deltaTime;
         if (lifeTime > 5) gameObject.SetActive(false);
-
-          // Get horizontal input
-        direction = Input.GetAxisRaw("Horizontal");
-    }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        //hit = true;
-        //boxCollider.enabled = false;
-        
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
             anim.SetTrigger("explode");
-            Deactivate(); 
+            Deactivate();
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            anim.SetTrigger("explode");
+            Deactivate();
         }
     }
     public void SetDirection(float _direction)

@@ -18,11 +18,12 @@ public class PlatformerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
     
+    
     private Rigidbody2D rb;
     private bool isGrounded;
 
-    private float moveInput;
-    private bool isMovingRight;
+    public float moveInput;
+    public bool isMovingRight;
     private bool isJumping;
  
     private SpriteRenderer sr;
@@ -69,6 +70,7 @@ public class PlatformerController : MonoBehaviour
         {
             //sr.flipX = false;
             anim.SetBool("isRunning", true);
+            anim.SetTrigger("attack");
         }
         else
         {
@@ -140,5 +142,4 @@ public class PlatformerController : MonoBehaviour
     {
         return moveInput == 0 && isGrounded;
     }
-    
 }

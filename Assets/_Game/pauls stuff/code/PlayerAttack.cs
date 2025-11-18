@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackCoolDown;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject[] fireballs;
+    [SerializeField] public Transform firePoint;
+    [SerializeField] public GameObject[] fireballs;
     private Animator anim;
     private PlatformerController playerMovement;
     private float cooldownTimer = Mathf.Infinity;
@@ -31,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
         fireballs[FindFireball()].transform.position = firePoint.position;
         fireballs[FindFireball()].GetComponent<projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
-    private int FindFireball()
+    public int FindFireball()
     {
         for (int i = 0; i < fireballs.Length; i++)
         {
@@ -41,3 +41,4 @@ public class PlayerAttack : MonoBehaviour
         return 0;
     }
 }
+

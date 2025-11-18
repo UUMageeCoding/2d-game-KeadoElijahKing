@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 
 {
+  public PlatformerController pc;
+  public PlayerAttack pa;
 
   // Singleton instance
 
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
   {
 
     get { return _instance; }
+    
 
   }
 
