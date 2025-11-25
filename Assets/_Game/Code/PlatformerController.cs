@@ -34,6 +34,7 @@ public class PlatformerController : MonoBehaviour
     public Animator anim; 
 
     private CapsuleCollider2D boxCollider;
+
     
     
     void Start()

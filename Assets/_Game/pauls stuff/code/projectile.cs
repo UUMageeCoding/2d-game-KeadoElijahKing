@@ -9,6 +9,8 @@ public class projectile : MonoBehaviour
     private Animator anim;
 
     private CapsuleCollider2D boxCollider;
+    public PlatformerController pc; 
+    private bool fireBallDirection; 
 
     private void Awake()
     {
@@ -23,6 +25,10 @@ public class projectile : MonoBehaviour
 
         lifeTime += Time.deltaTime;
         if (lifeTime > 5) gameObject.SetActive(false);
+
+        fireBallDirection = pc.isMovingRight;
+
+
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -45,11 +51,15 @@ public class projectile : MonoBehaviour
         hit = false;
         boxCollider.enabled = true;
 
-        float localScaleX = transform.localScale.x;
+        if (fireBallDirection)
+        {
+            float localScaleX = transform.localScale.x;
         if (Mathf.Sign(localScaleX) != direction)
             localScaleX = localScaleX;
 
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+        }
+        
     }
     private void Deactivate()
     {

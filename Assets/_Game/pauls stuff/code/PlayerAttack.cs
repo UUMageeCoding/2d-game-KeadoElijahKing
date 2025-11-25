@@ -4,8 +4,8 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackCoolDown;
      [SerializeField] public Transform firePoint;
-    [SerializeField] public Transform firePointRight;
-     [SerializeField] public Transform firePointLeft;
+   // [SerializeField] public Transform firePointRight;
+  //   [SerializeField] public Transform firePointLeft;
     [SerializeField] public GameObject[] fireballs;
     private Animator anim;
     private PlatformerController playerMovement;
@@ -32,8 +32,8 @@ public class PlayerAttack : MonoBehaviour
 
         cooldownTimer += Time.deltaTime;
 
-        firePointLeft.transform.position = new Vector2(transform.position.x, firePointLeft.transform.position.y);
-        firePointRight.transform.position = new Vector2(transform.position.x, firePointRight.transform.position.y);
+       // firePointLeft.transform.position = new Vector2(transform.position.x, firePointLeft.transform.position.y);
+        firePoint.transform.position = new Vector2(transform.position.x, firePoint.transform.position.y);
     }
 
     private void Attack()
@@ -43,11 +43,11 @@ public class PlayerAttack : MonoBehaviour
 
         if (playerSprite.flipX)
         {
-            firePoint.position = firePointLeft.position;
+            firePoint.position = firePoint.position;
         }
         else
         {
-            firePoint.position = firePointRight.position; 
+            firePoint.position = firePoint.position; 
         }
 
         fireballs[FindFireball()].transform.position = firePoint.position;
