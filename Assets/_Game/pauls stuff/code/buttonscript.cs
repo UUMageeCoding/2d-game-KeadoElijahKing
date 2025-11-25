@@ -21,6 +21,7 @@ public class buttonscript : MonoBehaviour
     // This method is called when the mouse enters the button's collider
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("hoverappear");
         if (highlightObject != null)
         {
             // Activate the highlightObject and set the sprite

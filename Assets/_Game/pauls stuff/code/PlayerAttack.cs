@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackCoolDown;
+    [SerializeField] private float attackDelay = 0.5f; 
      [SerializeField] public Transform firePoint;
    // [SerializeField] public Transform firePointRight;
   //   [SerializeField] public Transform firePointLeft;

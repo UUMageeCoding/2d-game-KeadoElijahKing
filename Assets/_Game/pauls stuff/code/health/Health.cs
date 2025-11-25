@@ -25,8 +25,13 @@ private bool dead;
         }
         else
         {
-            anim.SetTrigger("die");
-            GetComponent<PlatformerController>().enabled = false;
+            if (!dead)
+            {
+                anim.SetTrigger("die");
+                GetComponent<PlatformerController>().enabled = false; 
+                dead = true;
+            }
+            
         }
     }
 }
