@@ -52725,6 +52725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCoolDown: 1
   range: 0
+  colldierDistance: 0
   damage: 2
   BoxCollider: {fileID: 1519479788}
   Playerlayer:
@@ -57358,6 +57359,18 @@ PrefabInstance:
     - target: {fileID: 2190298113761766868, guid: 98e723878c50c4745ad1145b534810b0, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660640214183306553, guid: 98e723878c50c4745ad1145b534810b0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747580576276621356, guid: 98e723878c50c4745ad1145b534810b0, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747580576276621356, guid: 98e723878c50c4745ad1145b534810b0, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9162803426058316793, guid: 98e723878c50c4745ad1145b534810b0, type: 3}
       propertyPath: m_LocalPosition.x

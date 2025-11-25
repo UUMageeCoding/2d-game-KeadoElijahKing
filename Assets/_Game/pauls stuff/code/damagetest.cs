@@ -6,23 +6,28 @@ public class damagetest : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float damage;
     private bool movingDown;
+    private Rigidbody2D rb; 
     private float bottomEdge;
     private float topEdge;
 
-    private void Awake()
+   private void Awake()
     {
         bottomEdge = transform.position.y - movementDistance;
         bottomEdge = transform.position.y + movementDistance;
+       
     }
     private void Update()
     {
+        /*
         if (movingDown)
         {
             if (transform.position.y > bottomEdge)
             {
                 transform.position = new Vector3(transform.position.y - speed * Time.deltaTime, transform.position.x, transform.position.z);
+                // rb.linearVelocity = Vector2.zero; 
             }
         }
+        */
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
