@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
         cooldownTimer += Time.deltaTime;
 
        // firePointLeft.transform.position = new Vector2(transform.position.x, firePointLeft.transform.position.y);
-        firePoint.transform.position = new Vector2(transform.position.x, firePoint.transform.position.y);
+        //firePoint.transform.position = new Vector2(transform.position.x, firePoint.transform.position.y);
     }
 
     private void Attack()
@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         anim.SetTrigger("attack");
         cooldownTimer = 0;
 
-        if (playerSprite.flipX)
+       /* if (playerSprite.flipX)
         {
             firePoint.position = firePoint.position;
         }
@@ -50,9 +50,10 @@ public class PlayerAttack : MonoBehaviour
         {
             firePoint.position = firePoint.position; 
         }
-
+*/
+        fireballs[FindFireball()].GetComponent<projectile>().SetFireballActive();
         fireballs[FindFireball()].transform.position = firePoint.position;
-        fireballs[FindFireball()].GetComponent<projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        //fireballs[FindFireball()].GetComponent<projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
     public int FindFireball()
     {

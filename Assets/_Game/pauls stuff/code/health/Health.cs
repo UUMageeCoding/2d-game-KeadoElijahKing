@@ -39,7 +39,17 @@ private SpriteRenderer spriteRend;
             if (!dead)
             {
                 anim.SetTrigger("die");
+                //Player
+                if(GetComponent<PlatformerController>() != null)
                 GetComponent<PlatformerController>().enabled = false; 
+
+                //Enemy
+                if(GetComponent<enemyPatrol>() != null)
+                GetComponentInParent<enemyPatrol>().enabled = false;
+
+                if(GetComponent<meleeEnemy>() != null)
+                GetComponent<meleeEnemy>().enabled = false;
+
                 dead = true;
             }
             
