@@ -60,6 +60,13 @@ private SpriteRenderer spriteRend;
         currentHealth =Mathf.Clamp(currentHealth + _value, 0, startingHealth);
 
     }
+    public void Respawn()
+    {
+        AddHealth(startingHealth);
+        anim.ResetTrigger("die"); 
+        anim.Play("idle");
+        StartCoroutine(Invunerability());
+    }
     private IEnumerator Invunerability()
     {
         Physics2D.IgnoreLayerCollision(6,10, true);
