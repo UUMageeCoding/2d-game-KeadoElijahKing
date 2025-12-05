@@ -24,11 +24,6 @@ public class GameManager : MonoBehaviour
 
   }
 
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
 
     void Awake()
 
@@ -55,19 +50,6 @@ public class GameManager : MonoBehaviour
     }
 
   }
-    private void Update()
-    {
-        if (gameOverUI.activeInHierarchy)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
     public void gameOver()
     {
         gameOverUI.SetActive(true);
@@ -78,6 +60,7 @@ public class GameManager : MonoBehaviour
     }
     public void mainMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("title screen");
     }
     public void quit()

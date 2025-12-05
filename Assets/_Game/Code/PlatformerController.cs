@@ -29,8 +29,8 @@ public class PlatformerController : MonoBehaviour
  
     public SpriteRenderer sr;
 
-    private Vector3 respawnPoint;
-    public GameObject FallDetector;
+   // private Vector3 respawnPoint;
+    //public GameObject FallDetector;
     public Animator anim; 
 
     private CapsuleCollider2D boxCollider;
@@ -49,7 +49,7 @@ public class PlatformerController : MonoBehaviour
         isMovingRight = true;
         anim = GetComponent<Animator>();
 
-        respawnPoint = transform.position;
+        //respawnPoint = transform.position;
     }
 
     void Update()
@@ -110,18 +110,18 @@ public class PlatformerController : MonoBehaviour
         }
 
 
-        FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
+        //FallDetector.transform.position = new Vector2(transform.position.x, FallDetector.transform.position.y);
     }
 
 
-    void OnTriggerEnter2D(Collider2D other)
+   /* void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("FallDetector"))
         {
             transform.position = respawnPoint;
             rb.linearVelocity = Vector2.zero; // Reset velocity upon respawn
         }
-    }
+    }*/
     void FixedUpdate()
     {
         // Apply horizontal movement

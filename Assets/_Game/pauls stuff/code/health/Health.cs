@@ -24,6 +24,7 @@ private SpriteRenderer spriteRend;
     public GameManager gameManager;
 
     private bool isDead;
+    private bool isEnemyDead;
 
 
     private void Awake()
@@ -39,6 +40,12 @@ private SpriteRenderer spriteRend;
             isDead = true;
             gameObject.SetActive(false);
             gameManager.gameOver();
+            Debug.Log("dead");
+        }
+        if (currentHealth <= 0 && !isEnemyDead)
+        {
+            isEnemyDead = true;
+            gameObject.SetActive(false);
             Debug.Log("dead");
         }
     }
