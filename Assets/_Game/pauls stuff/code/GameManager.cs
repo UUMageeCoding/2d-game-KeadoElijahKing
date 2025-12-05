@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 
 {
   public PlatformerController pc;
   public PlayerAttack pa;
+
+    public GameObject gameOverUI;
 
   // Singleton instance
 
@@ -21,9 +24,13 @@ public class GameManager : MonoBehaviour
 
   }
 
-  
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
-  void Awake()
+    void Awake()
 
   {
 
@@ -47,6 +54,35 @@ public class GameManager : MonoBehaviour
 
     }
 
-  } 
-
+  }
+    private void Update()
+    {
+        if (gameOverUI.activeInHierarchy)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+    public void gameOver()
+    {
+        gameOverUI.SetActive(true);
+    }
+    public void restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void mainMenu()
+    {
+        SceneManager.LoadScene("title screen");
+    }
+    public void quit()
+    {
+        Application.Quit();
+        Debug.Log("Quit");
+    }
 }

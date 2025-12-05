@@ -16,7 +16,11 @@ private bool dead;
 [SerializeField] private float iFramesDuration; 
 
 [SerializeField] private float numberOfFlashes; 
-private SpriteRenderer spriteRend; 
+private SpriteRenderer spriteRend;
+
+    public GameManager gameManager;
+
+    private bool isDead;
 
 
     private void Awake()
@@ -24,6 +28,16 @@ private SpriteRenderer spriteRend;
         currentHealth = startingHealth;
         anim = GetComponent<Animator>(); 
         spriteRend = GetComponent<SpriteRenderer>();
+    }
+    private void Update()
+    {
+        if(currentHealth <= 0 && !isDead)
+        {
+            isDead = true;
+            gameObject.SetActive(false);
+            gameManager.gameOver();
+            Debug.Log("dead");
+        }
     }
     public void TakeDamage(float _damage)
     {
