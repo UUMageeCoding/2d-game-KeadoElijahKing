@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - fallingFire
   - fireball
+  - Respawm
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

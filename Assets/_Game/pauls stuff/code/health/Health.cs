@@ -18,6 +18,9 @@ private bool dead;
 [SerializeField] private float numberOfFlashes; 
 private SpriteRenderer spriteRend;
 
+    [Header("Components")]
+   [SerializeField] private Behaviour[] components; 
+
     public GameManager gameManager;
 
     private bool isDead;
@@ -53,16 +56,10 @@ private SpriteRenderer spriteRend;
             if (!dead)
             {
                 anim.SetTrigger("die");
-                //Player
-                if(GetComponent<PlatformerController>() != null)
-                GetComponent<PlatformerController>().enabled = false; 
 
-                //Enemy
-                if(GetComponent<enemyPatrol>() != null)
-                GetComponentInParent<enemyPatrol>().enabled = false;
-
-                if(GetComponent<meleeEnemy>() != null)
-                GetComponent<meleeEnemy>().enabled = false;
+                foreach (Behaviour component in components)
+                    component.enabled = false;
+                
 
                 dead = true;
             }
@@ -92,5 +89,9 @@ private SpriteRenderer spriteRend;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
          Physics2D.IgnoreLayerCollision(6,10, false);
+    }
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }
