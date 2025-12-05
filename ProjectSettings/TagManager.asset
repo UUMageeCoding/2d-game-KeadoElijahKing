@@ -12,6 +12,7 @@ TagManager:
   - fireball
   - Respawm
   - CheckPoint
+  - changeSprite
   layers:
   - Default
   - TransparentFX
