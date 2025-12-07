@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Game/pauls stuff/crystallization/scenes/crystallization level one.unity
     guid: b9916be7ab10d584d9f48a411ebebe99
   - enabled: 1
+    path: Assets/_Game/pauls stuff/crystallization/scenes/end scene.unity
+    guid: 0b14088a1b914db4789c1cf7576a79c0
+  - enabled: 1
     path: Assets/_Game/pauls stuff/crystallization/scenes/crystallization level two.unity
     guid: 67b709ea6731a2d4cbade2349c837aa3
   m_configObjects:
