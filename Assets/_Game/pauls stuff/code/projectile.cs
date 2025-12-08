@@ -32,7 +32,7 @@ public class projectile : MonoBehaviour
         transform.Translate(movementSpeed, 0, 0);
 
         lifeTime -= Time.deltaTime;
-        if (lifeTime < 0) gameObject.SetActive(false);
+        if (lifeTime <= 0) gameObject.SetActive(false);
 
 
 
