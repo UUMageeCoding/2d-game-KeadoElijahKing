@@ -77594,6 +77594,10 @@ PrefabInstance:
       propertyPath: pc
       value: 
       objectReference: {fileID: 2011223410}
+    - target: {fileID: 631899267370977293, guid: 48c10e35c34eac14e8f20f1d53f6fd1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1026493211228209058, guid: 48c10e35c34eac14e8f20f1d53f6fd1f, type: 3}
       propertyPath: pc
       value: 
