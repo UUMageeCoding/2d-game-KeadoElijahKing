@@ -10,7 +10,11 @@ public class meleeEnemy : MonoBehaviour
     [SerializeField] private BoxCollider2D BoxCollider; 
     [SerializeField] private LayerMask Playerlayer; 
     private float cooldownTimer = Mathf.Infinity;
+    public float chaseSpeed = 5f;
 
+    [SerializeField] Transform player;
+    Vector3 chaseStartPos;
+    public float chaseDistance = 5f;
     private Animator anim;
 
     private Health playerHealth;
@@ -21,6 +25,7 @@ public class meleeEnemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         enemypatrol = GetComponentInParent<enemyPatrol>();
+        chaseStartPos = transform.position; 
     }
     private void Update()
     {
@@ -43,12 +48,24 @@ public class meleeEnemy : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(BoxCollider.bounds.center + transform.right * range * transform.localScale.x * colldierDistance, new Vector3(BoxCollider.bounds.size.x * range, BoxCollider.bounds.size.y, BoxCollider.bounds.size.z), 0, Vector2.left, 0, Playerlayer);
 
         if(hit.collider != null)
+        {
             playerHealth = hit.transform.GetComponent<Health>();
+            transform.position = Vector2.MoveTowards(transform.position,player.position, chaseSpeed * Time.deltaTime);
+          Debug.Log("isChasing" + transform.position);
+            float distanceFromStart = Vector2.Distance(transform.position,chaseStartPos); 
+
+            if(distanceFromStart >= chaseDistance)
+            {
+                transform.position = chaseStartPos; 
+                enemypatrol.enabled = true;
+            }
+        }
+            
 
 
         return hit.collider !=null; 
-
-
+        
+        
     }
     private void OnDrawGizmos()
     {
@@ -62,4 +79,5 @@ public class meleeEnemy : MonoBehaviour
             playerHealth.TakeDamage(damage);
         
     }
+
 }

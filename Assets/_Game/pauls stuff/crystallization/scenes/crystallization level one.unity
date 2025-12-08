@@ -71206,6 +71206,14 @@ PrefabInstance:
       value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 6528661162407173282, guid: 9336d75652bfddb439ca6ef484f333f4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2011223400}
+    - target: {fileID: 6528661162407173282, guid: 9336d75652bfddb439ca6ef484f333f4, type: 3}
+      propertyPath: chaseSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528661162407173282, guid: 9336d75652bfddb439ca6ef484f333f4, type: 3}
       propertyPath: attackCoolDown
       value: 2
       objectReference: {fileID: 0}
