@@ -13,6 +13,7 @@ TagManager:
   - Respawm
   - CheckPoint
   - changeSprite
+  - ChangePlayer
   layers:
   - Default
   - TransparentFX
