@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private PlatformerController playerMovement;
     private float cooldownTimer = Mathf.Infinity;
+    private int lastFireballIndex = -1; // Track last used fireball for round-robin
 
     PlatformerController platformerController;
     public SpriteRenderer playerSprite;
@@ -51,18 +52,31 @@ public class PlayerAttack : MonoBehaviour
             firePoint.position = firePoint.position; 
         }
 */
-        fireballs[FindFireball()].GetComponent<projectile>().SetFireballActive();
-        fireballs[FindFireball()].transform.position = firePoint.position;
-        //fireballs[FindFireball()].GetComponent<projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        int fireballIndex = FindFireball();
+        if (fireballIndex >= 0)
+        {
+            GameObject fireball = fireballs[fireballIndex];
+            fireball.transform.position = firePoint.position;
+            fireball.GetComponent<projectile>().SetFireballActive();
+            fireball.GetComponent<projectile>().SetDirection(playerMovement.isMovingRight);
+        }
     }
     public int FindFireball()
     {
+        // First, try to find an inactive fireball
         for (int i = 0; i < fireballs.Length; i++)
         {
             if (!fireballs[i].activeInHierarchy)
-            return i;
+            {
+                lastFireballIndex = i;
+                return i;
+            }
         }
-        return 0;
+        
+        // If all fireballs are active, use round-robin to cycle through them
+        // This ensures we can always fire even if all are active
+        lastFireballIndex = (lastFireballIndex + 1) % fireballs.Length;
+        return lastFireballIndex;
     }
 }
 
